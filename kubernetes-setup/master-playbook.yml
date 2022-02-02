@@ -43,7 +43,12 @@
       dest: "/etc/docker/daemon.json"
       content: |
         {
-        "exec-opts": ["native.cgroupdriver=systemd"]
+          "exec-opts": ["native.cgroupdriver=systemd"],
+          "log-driver": "json-file",
+          "log-opts": {
+            "max-size": "100m"
+          },
+          "storage-driver": "overlay2"
         }
 
   - name: Restart docker
@@ -117,7 +122,7 @@
 
   - name: Install calico pod network
     become: false
-    command: kubectl create -f https://docs.projectcalico.org/v3.4/getting-started/kubernetes/installation/hosted/calico.yaml
+    command: kubectl apply -f https://projectcalico.docs.tigera.io/manifests/calico.yaml
 
   - name: Generate join command
     command: kubeadm token create --print-join-command
