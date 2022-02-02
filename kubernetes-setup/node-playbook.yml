@@ -43,7 +43,12 @@
       dest: "/etc/docker/daemon.json"
       content: |
         {
-        "exec-opts": ["native.cgroupdriver=systemd"]
+          "exec-opts": ["native.cgroupdriver=systemd"],
+          "log-driver": "json-file",
+          "log-opts": {
+            "max-size": "100m"
+          },
+          "storage-driver": "overlay2"
         }
 
   - name: Restart docker
@@ -105,6 +110,7 @@
       state: restarted
 
   - name: Copy the join command to server location
+    become: no
     copy: src=join-command dest=/tmp/join-command.sh mode=0777
 
   - name: Join the node to cluster
