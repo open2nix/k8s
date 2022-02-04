@@ -1,7 +1,7 @@
 # k8s
 Quick setup for production like k8s workload on local machine including Windows/MacOs/Linux
 
-## prerequisite
+## Prerequisite
 
 This requires the following to be installed on you local machine:
 
@@ -23,12 +23,6 @@ Get inside master host
 
 ```
 vagrant ssh k8s-master 
-```
-
-Check nodes and master 
-
-```
-kubectl get nodes 
 ```
 
 ## Documentation
