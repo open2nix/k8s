@@ -33,9 +33,9 @@ kubectl get nodes
 
 ## Documentation
 
-For Reference Documentation
+For Reference
 
- * [kubectl-cheatsheet](https://jamesdefabia.github.io/docs/user-guide/kubectl-cheatsheet/)
+ * [kubectl-cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 
 ## Contributing
